@@ -1,26 +1,24 @@
-
 enum GameGenre {
-    Action,
-    Adventure,
-    Sport,
+	Action = 'Action',
+	Adventure = 'Adventure',
+	Sport = 'Sport'
 }
 
 interface Game {
-    name: string;
-    genre: The GameGenre;
-    onlinePlay: boolean, optional;
+	name: string;
+	genre: GameGenre;
+	onlinePlay?: boolean;
 }
 
-let Action = {
-    name: 'Fun adventure Game',
-    genre: 'ADVENTURE',
-    onlinePlay: true,
+const action: Game = {
+	name: 'Fun adventure Game',
+	genre: GameGenre.Action,
+	onlinePlay: true
+};
+
+function createGame(game: Game) {
+	return `Name: ${game.name} Genre: ${game.genre} Play online: ${game.onlinePlay}`;
 }
 
-
-function createGame(game: Action) {
-    return `Name: ${game.name} Genre: ${game.genre} Play online: ${game.onlinePlay}`;
-}
-
-module.exports = createGame
-console.log(createGame(Action));
+module.exports = createGame;
+console.log(createGame(action));
