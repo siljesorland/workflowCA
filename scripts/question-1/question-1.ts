@@ -1,35 +1,38 @@
 interface Person {
-    school: string;
-    firstName: string;
-    lastName: string;
-    age: number;
-    isAdmin: boolean;
+	school?: string;
+	firstName: string;
+	lastName: string;
+	age: number;
+	isAdmin?: boolean;
 }
 
-function newUser(person: Person) {
-    return `${person.school} ${person.firstName} ${person.lastName} ${person.age}`;
+function newUser({ firstName, lastName, age, isAdmin = false, school = 'Noroff' }: Person): Person {
+	return {
+		firstName,
+		lastName,
+		age,
+		isAdmin,
+		school
+	};
 }
 
-let Ola = {
-    school: 'Noroff',
-    firstName: 'Ola',
-    lastName: 'Nordmann',
-    age: 18,
-    isAdmin: false
+const ola = {
+	school: 'Noroff',
+	firstName: 'Ola',
+	lastName: 'Nordmann',
+	age: 18,
+	isAdmin: false
 };
 
 function newAdmin(person: Person) {
-    return `${person.school} ${person.firstName} ${person.lastName} ${person.age} Is Admin: ${person.isAdmin}`;
+	return `${person.school} ${person.firstName} ${person.lastName} ${person.age} Is Admin: ${person.isAdmin}`;
 }
 
-
-let Kari = {
-    school: 'Noroff',
-    firstName: 'Kari',
-    lastName: 'Nordmann',
-    age: 36,
-    isAdmin: true
+const kari = {
+	firstName: 'Kari',
+	lastName: 'Nordmann',
+	age: 36
 };
 
-console.log(newUser(Ola));
-console.log(newAdmin(Kari));
+console.log(newUser(ola));
+console.log(newAdmin(kari));

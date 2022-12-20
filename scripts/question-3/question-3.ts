@@ -4,7 +4,7 @@ export function getDiscountPercentage(normalPrice, discountedPrice) {
 console.log(getDiscountPercentage(75, 100));
 
 export function formatDecimalSpaces(value, decimalSpaces = 2) {
-    return +(Math.round(value + `e+${decimalSpaces}`) + `e-${decimalSpaces}`);
+    return +(Math.round(Number(value + `e+${decimalSpaces}`)) + `e-${decimalSpaces}`);
 }
 
 console.log(formatDecimalSpaces(15.5555555));
